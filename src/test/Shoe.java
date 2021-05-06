@@ -75,11 +75,12 @@ public class Shoe {
     }
 
     public static Shoe[] expandClosetToASpecificSize(Shoe[] closet, int size) {
-        Shoe[] expanded = new Shoe[size];
-        for (int i = 0; i < closet.length; i++) {
-            expanded[i] = closet[i];
+        Shoe[] expanded = new Shoe[size]; //const
+        for (int i = 0; i < closet.length; i++) { //n
+            expanded[i] = closet[i]; //const
         }
-        return expanded;
+        return expanded; // const
+        // BIG O: O(n)
     }
 
     public static void printAllIndexes(Shoe[] closet) {
