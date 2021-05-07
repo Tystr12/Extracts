@@ -37,7 +37,7 @@ public class Shoe {
         this.color = color;
     }
 
-    public static boolean checkForEmptySlot(Shoe[] closet) {
+    public static boolean hasEmptySlot(Shoe[] closet) {
         boolean isSlotEmpty = false;
         for (Shoe shoe : closet) {
             if (shoe == null) {
@@ -50,7 +50,7 @@ public class Shoe {
 
     public static int getEmptySlotIndex(Shoe[] closet) {
         int indexOfEmptySlot = 0;
-        if (checkForEmptySlot(closet)) {
+        if (hasEmptySlot(closet)) {
             for (int i = 0; i < closet.length; i++) {
                 if (closet[i] == null) {
                     indexOfEmptySlot = i;
@@ -62,7 +62,7 @@ public class Shoe {
     }
 
     public static void insertNewShoe(Shoe[] closet, Shoe s) {
-        if (checkForEmptySlot(closet)) {
+        if (hasEmptySlot(closet)) {
             closet[getEmptySlotIndex(closet)] = s;
         } else {
             Shoe[] expanded = expandClosetToASpecificSize(closet, closet.length + 1);
