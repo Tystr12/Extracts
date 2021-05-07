@@ -54,6 +54,7 @@ public class Shoe {
             for (int i = 0; i < closet.length; i++) {
                 if (closet[i] == null) {
                     indexOfEmptySlot = i;
+                    break;
                 }
             }
         }
@@ -62,12 +63,7 @@ public class Shoe {
 
     public static void insertNewShoe(Shoe[] closet, Shoe s) {
         if (checkForEmptySlot(closet)) {
-            for (int i = 0; i < closet.length; i++) {
-                if (closet[i] == null) {
-                    closet[i] = s;
-                    break;
-                }
-            }
+            closet[getEmptySlotIndex(closet)] = s;
         } else {
             Shoe[] expanded = expandClosetToASpecificSize(closet, closet.length + 1);
             insertNewShoe(expanded, s);
@@ -89,10 +85,10 @@ public class Shoe {
         }
     }
 
-    public static void removeShoe(Shoe[] collection, Shoe s) {
-        if (searchForShoe(collection, s)) {
-            int index = getIndexOfShoe(collection, s);
-            collection[index] = null;
+    public static void removeShoe(Shoe[] closet, Shoe s) {
+        if (searchForShoe(closet, s)) {
+            int index = getIndexOfShoe(closet, s);
+            closet[index] = null;
         }
     }
 
@@ -187,5 +183,10 @@ public class Shoe {
         }
         Shoe[] sameColorTrimmed = trimCollectionLength(sameColor);
         return sameColorTrimmed;
+    }
+    public static void removeAllShoesFromCollection(Shoe[] collection) {
+        for(int i = 0; i < collection.length; i++) {
+            collection[i] = null;
+        }
     }
 }

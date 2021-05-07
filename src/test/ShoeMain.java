@@ -29,7 +29,9 @@ public class ShoeMain {
         printAllIndexes(shoesWithAdidas);
         Shoe[] shoesWithBlue = getAllShoesWithColor(expandedCloset, "Blue");
         printAllIndexes(shoesWithBlue);
-
+        System.out.println("removing shoes");
+        removeAllShoesFromCollection(shoesWithBlue);
+        printAllIndexes(shoesWithBlue);
     }
 
 }
