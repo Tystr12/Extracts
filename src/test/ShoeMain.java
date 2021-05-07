@@ -17,6 +17,7 @@ public class ShoeMain {
 
         insertNewShoe(closet, s3);
         printAllIndexes(closet);
+        System.out.println("-------New array under here--------");
         Shoe[] expandedCloset = expandClosetToASpecificSize(closet, 4);
         insertNewShoe(expandedCloset, s4);
         printAllIndexes(expandedCloset);

@@ -65,9 +65,12 @@ public class Shoe {
         if (hasEmptySlot(closet)) {
             closet[getEmptySlotIndex(closet)] = s;
         } else {
-            Shoe[] expanded = expandClosetToASpecificSize(closet, closet.length + 1);
-            insertNewShoe(expanded, s);
+            createBiggerClosetAndInsertNewShoe(closet, s);
         }
+    }
+    public static void createBiggerClosetAndInsertNewShoe(Shoe[] closet, Shoe s) {
+        Shoe[] expanded = expandClosetToASpecificSize(closet, closet.length + 1);
+        insertNewShoe(expanded, s);
     }
 
     public static Shoe[] expandClosetToASpecificSize(Shoe[] closet, int size) {
